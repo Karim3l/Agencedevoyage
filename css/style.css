@@ -1,10 +1,13 @@
 /* Global Styles */
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
+    --primary-color: #4ea2ac;
+    --primary-dark: #3d8188;
+    --primary-light: #6fb8c1;
+    --secondary-color: #2c3e50;
     --white: #ffffff;
     --light-gray: #f8f9fa;
-    --dark-gray: #343a40;
+    --dark-gray: #2c3e50;
+    --text-color: #333333;
     --transition: all 0.3s ease;
 }
 
@@ -13,6 +16,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    color: var(--text-color);
 }
 
 /* Enhanced Navigation Styles */
@@ -24,7 +28,7 @@ body {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 0.8rem 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(78, 162, 172, 0.1);
     transition: var(--transition);
 }
 
@@ -64,7 +68,7 @@ body {
 }
 
 .nav-menu a {
-    color: var(--dark-gray);
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: 500;
     font-size: 1.05rem;
@@ -118,14 +122,15 @@ body {
 .menu-toggle span {
     width: 100%;
     height: 3px;
-    background-color: var(--dark-gray);
+    background-color: var(--primary-color);
     border-radius: 3px;
     transition: var(--transition);
 }
 
 /* Hero Section */
 .hero-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/hero-bg.jpg');
+    position: relative;
+    background-image: linear-gradient(rgba(44, 62, 80, 0.7), rgba(78, 162, 172, 0.7)), url('../images/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -135,16 +140,17 @@ body {
 }
 
 .hero-section h1 {
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Search Form */
 .search-form {
     background-color: var(--white);
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 2rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 20px rgba(78, 162, 172, 0.1);
 }
 
 /* Destination and Hotel Sections Common Styles */
@@ -160,6 +166,8 @@ body {
     text-align: center;
     color: var(--secondary-color);
     position: relative;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .section-title::after {
@@ -169,8 +177,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
-    height: 3px;
-    background-color: var(--primary-color);
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--primary-light), var(--primary-color));
 }
 
 /* Card Grid Layout */
@@ -190,7 +199,7 @@ body {
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    background-color: var(--white);
+    background: linear-gradient(to bottom, rgba(78, 162, 172, 0.05), rgba(78, 162, 172, 0.1));
 }
 
 /* Enhanced Image Container */
@@ -223,7 +232,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(78, 162, 172, 0.3);
     opacity: 0;
     transition: opacity 0.5s ease, backdrop-filter 0.5s ease;
     z-index: 1;
@@ -258,16 +267,18 @@ body {
 .card-text-overlay .card-button {
     display: inline-block;
     padding: 0.8rem 1.5rem;
-    background: white;
-    color: #333;
+    background-color: var(--white);
+    color: var(--primary-color);
     text-decoration: none;
     border-radius: 25px;
     font-weight: 500;
     transition: all 0.3s ease;
+    border: none;
 }
 
 .card-text-overlay .card-button:hover {
-    background: #f8f9fa;
+    background-color: var(--primary-color);
+    color: var(--white);
     transform: translateY(-2px);
 }
 
@@ -313,28 +324,32 @@ body {
 
 /* Hotel Specific Styles */
 .hotel-rating {
-    color: #ffd700;
+    color: #FFD700;
 }
 
 .hotel-price {
     font-weight: 600;
+    color: #FFD700;
 }
 
 /* Card Button */
 .card-button {
     display: inline-flex;
     align-items: center;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1.8rem;
     background-color: var(--primary-color);
     color: var(--white);
     text-decoration: none;
     border-radius: 25px;
     font-weight: 500;
     transition: background-color 0.3s ease;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(78, 162, 172, 0.2);
 }
 
 .card-button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
 }
 
 /* Image Loading and Error States */
@@ -358,7 +373,7 @@ body {
 .destination-card:hover,
 .hotel-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 30px rgba(78, 162, 172, 0.15);
 }
 
 .destination-card:hover .card-blur-overlay,
@@ -366,7 +381,7 @@ body {
     opacity: 1;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(78, 162, 172, 0.5);
 }
 
 .destination-card:hover .card-text-overlay,
@@ -528,7 +543,7 @@ body {
     .card-blur-overlay {
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(78, 162, 172, 0.6);
     }
 }
 
@@ -705,6 +720,8 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    border: 1px solid rgba(78, 162, 172, 0.1);
+    background: linear-gradient(145deg, var(--white), rgba(78, 162, 172, 0.05));
 }
 
 .testimonial-img {
@@ -713,7 +730,7 @@ body {
     border-radius: 50%;
     margin: 0 auto 1.5rem;
     object-fit: cover;
-    border: 4px solid var(--white);
+    border: 4px solid var(--primary-light);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
@@ -726,7 +743,7 @@ body {
     font-size: 1.4rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
-    color: var(--dark-gray);
+    color: var(--primary-color);
 }
 
 .testimonial-feedback {
@@ -810,5 +827,228 @@ body {
     #testimonialCarousel .carousel-control-next {
         width: 35px;
         height: 35px;
+    }
+}
+
+/* CTA Section */
+.cta-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--white);
+    position: relative;
+}
+
+.cta-content {
+    padding: 4rem 0;
+}
+
+.cta-content .section-title {
+    color: var(--white);
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+}
+
+.cta-content .lead {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+.cta-content .card-button {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--primary-color);
+}
+
+.cta-content .card-button:hover {
+    background-color: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.cta-content .btn-outline-light:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Footer Styles */
+.footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    position: relative;
+}
+
+.footer-brand .footer-logo {
+    height: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-description {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.footer-contact p {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-contact i {
+    color: var(--primary-color);
+    width: 25px;
+    margin-right: 10px;
+}
+
+.footer-title {
+    color: var(--white);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-links a i {
+    font-size: 0.8rem;
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    padding-left: 5px;
+}
+
+.footer-newsletter p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-form .input-group {
+    display: flex;
+    gap: 1rem;
+}
+
+.newsletter-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(78, 162, 172, 0.2);
+    color: var(--white);
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    transition: var(--transition);
+}
+
+.newsletter-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(78, 162, 172, 0.15);
+}
+
+.newsletter-form .card-button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    white-space: nowrap;
+}
+
+.newsletter-form .card-button:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 991px) {
+    .newsletter-form .input-group {
+        flex-direction: column;
+    }
+    
+    .newsletter-form .card-button {
+        width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .cta-content .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .cta-content .lead {
+        font-size: 1.2rem;
+    }
+    
+    .footer-title {
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-content {
+        padding: 3rem 0;
+    }
+    
+    .cta-content .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .footer {
+        text-align: center;
+    }
+    
+    .footer-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-contact i {
+        width: auto;
+        margin-right: 5px;
+    }
+    
+    .footer-links a {
+        display: inline-block;
+        padding: 5px 0;
     }
 }
