@@ -7,32 +7,71 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+    .section {
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .section.active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
+            <div class="nav-left">
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
             <a href="#" class="logo">
                 <img src="images/logo.png" alt="Nomad Journeys" height="40">
             </a>
             
-            <button class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-right">
+                <div class="nav-icons">
+                    <div class="language-dropdown">
+                        <button class="icon-button" id="languageToggle">
+                            <i class="fas fa-globe"></i>
+                        </button>
+                        <div class="dropdown-menu" id="languageMenu">
+                            <a href="#" class="dropdown-item" data-lang="fr">Français</a>
+                            <a href="#" class="dropdown-item" data-lang="en">English</a>
+                            <a href="#" class="dropdown-item" data-lang="es">Español</a>
+                        </div>
+                    </div>
+                    <div class="account-dropdown">
+                        <button class="icon-button" id="accountToggle">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <div class="dropdown-menu" id="accountMenu">
+                            <a href="#" class="dropdown-item"><i class="fas fa-sign-in-alt"></i> Se connecter</a>
+                            <a href="#" class="dropdown-item"><i class="fas fa-user-plus"></i> S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="nav-menu" id="navMenu">
-                <a href="#"><i class="fas fa-home"></i> Accueil</a>
-                <a href="#"><i class="fas fa-plane"></i> Destinations</a>
-                <a href="#"><i class="fas fa-suitcase"></i> Séjours</a>
-                <a href="#"><i class="fas fa-percent"></i> Offres</a>
-                <a href="#"><i class="fas fa-user"></i> Mon Compte</a>
-                <select class="form-select">
-                    <option value="fr" selected>FR</option>
-                    <option value="en">EN</option>
-                </select>
+                <div class="nav-menu-inner">
+                    <a href="#" class="nav-link"><i class="fas fa-home"></i> Accueil</a>
+                    <a href="#" class="nav-link"><i class="fas fa-plane"></i> Destinations</a>
+                    <a href="#" class="nav-link"><i class="fas fa-suitcase"></i> Séjours</a>
+                    <a href="#" class="nav-link"><i class="fas fa-percent"></i> Offres</a>
+                    <a href="#" class="nav-link"><i class="fas fa-info-circle"></i> À propos</a>
+                    <a href="#" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+                </div>
             </div>
+            
+            <div class="menu-overlay" id="menuOverlay"></div>
         </div>
     </nav>
 
@@ -554,13 +593,32 @@
         <div class="footer-bottom mt-4">
             <div class="container">
                 <div class="text-center">
-                    <p class="mb-0">Copyright © 2023 Nomad Journeys. Tous droits réservés.</p>
+                    <p class="mb-0">Copyright © 2025 Nomad Journeys. Tous droits réservés.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var container = document.querySelector('body'); // or any specific container
+        var hammer = new Hammer(container);
+
+        hammer.on('swipeleft', function () {
+            // Logic to navigate to the next section
+            console.log('Swiped left');
+            // Example: window.location.href = 'next-section-url';
+        });
+
+        hammer.on('swiperight', function () {
+            // Logic to navigate to the previous section
+            console.log('Swiped right');
+            // Example: window.location.href = 'previous-section-url';
+        });
+    });
+    </script>
 </body>
 </html> 
