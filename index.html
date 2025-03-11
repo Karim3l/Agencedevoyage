@@ -10,26 +10,28 @@
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
                 <img src="images/logo.png" alt="Nomad Journeys" height="40">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <select class="form-select language-select">
-                            <option value="fr" selected>FR</option>
-                            <option value="en">EN</option>
-                        </select>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="fas fa-user"></i></a>
-                    </li>
-                </ul>
+
+            <div class="nav-menu" id="navMenu">
+                <a href="#"><i class="fas fa-home"></i> Accueil</a>
+                <a href="#"><i class="fas fa-plane"></i> Destinations</a>
+                <a href="#"><i class="fas fa-suitcase"></i> Séjours</a>
+                <a href="#"><i class="fas fa-percent"></i> Offres</a>
+                <a href="#"><i class="fas fa-user"></i> Mon Compte</a>
+                <select class="form-select">
+                    <option value="fr" selected>FR</option>
+                    <option value="en">EN</option>
+                </select>
             </div>
         </div>
     </nav>
@@ -42,31 +44,32 @@
             <!-- Search Form -->
             <div class="search-form bg-white p-4 rounded shadow">
                 <ul class="nav nav-tabs mb-3" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-bs-toggle="tab" href="#vol-hotel">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#vol-hotel" type="button" role="tab">
                             <i class="fas fa-plane"></i> + <i class="fas fa-hotel"></i> Vol + Hôtel
-                        </a>
+                        </button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#sejour">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#sejour" type="button" role="tab">
                             <i class="fas fa-suitcase"></i> Séjour
-                        </a>
+                        </button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#vol">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#vol" type="button" role="tab">
                             <i class="fas fa-plane"></i> Vol
-                        </a>
+                        </button>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" href="#hotel">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#hotel" type="button" role="tab">
                             <i class="fas fa-hotel"></i> Hôtel
-                        </a>
+                        </button>
                     </li>
                 </ul>
                 
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="vol-hotel">
-                        <form>
+                    <!-- Vol + Hôtel Tab -->
+                    <div class="tab-pane fade show active" id="vol-hotel" role="tabpanel">
+                        <form class="search-form-content">
                             <div class="row g-3">
                                 <div class="col-md-3">
                                     <label>Départ</label>
@@ -78,15 +81,104 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label>Quand ?</label>
-                                    <input type="text" class="form-control" placeholder="9 mars - 12 mars">
+                                    <input type="text" class="form-control date-input" placeholder="9 mars - 12 mars">
                                 </div>
                                 <div class="col-md-2">
                                     <label>Voyageurs</label>
-                                    <input type="text" class="form-control" value="2 voyageurs - 1 cham.">
+                                    <input type="text" class="form-control traveler-input" value="2 voyageurs - 1 cham.">
                                 </div>
                                 <div class="col-md-1">
                                     <label>&nbsp;</label>
-                                    <button class="btn btn-primary w-100"><i class="fas fa-search"></i></button>
+                                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Séjour Tab -->
+                    <div class="tab-pane fade" id="sejour" role="tabpanel">
+                        <form class="search-form-content">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label>Destination</label>
+                                    <input type="text" class="form-control" placeholder="Où souhaitez-vous aller?">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Dates du séjour</label>
+                                    <input type="text" class="form-control date-input" placeholder="Choisir les dates">
+                                </div>
+                                <div class="col-md-4">
+                                    <label>Type de séjour</label>
+                                    <select class="form-select">
+                                        <option value="">Tout type de séjour</option>
+                                        <option value="plage">Séjour plage</option>
+                                        <option value="ville">Séjour en ville</option>
+                                        <option value="montagne">Séjour montagne</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <label>&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Vol Tab -->
+                    <div class="tab-pane fade" id="vol" role="tabpanel">
+                        <form class="search-form-content">
+                            <div class="row g-3">
+                                <div class="col-md-3">
+                                    <label>Départ</label>
+                                    <input type="text" class="form-control" placeholder="Ville de départ">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Arrivée</label>
+                                    <input type="text" class="form-control" placeholder="Ville d'arrivée">
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Aller</label>
+                                    <input type="text" class="form-control date-input" placeholder="Date aller">
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Retour</label>
+                                    <input type="text" class="form-control date-input" placeholder="Date retour">
+                                </div>
+                                <div class="col-md-1">
+                                    <label>Passagers</label>
+                                    <input type="text" class="form-control traveler-input" value="1 adulte">
+                                </div>
+                                <div class="col-md-1">
+                                    <label>&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Hôtel Tab -->
+                    <div class="tab-pane fade" id="hotel" role="tabpanel">
+                        <form class="search-form-content">
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <label>Destination</label>
+                                    <input type="text" class="form-control" placeholder="Ville, région ou hôtel">
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Dates de séjour</label>
+                                    <input type="text" class="form-control date-input" placeholder="Arrivée - Départ">
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Chambres</label>
+                                    <input type="text" class="form-control room-input" value="1 chambre">
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Voyageurs</label>
+                                    <input type="text" class="form-control traveler-input" value="2 voyageurs">
+                                </div>
+                                <div class="col-md-1">
+                                    <label>&nbsp;</label>
+                                    <button type="submit" class="btn btn-primary w-100"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
                         </form>
@@ -99,39 +191,254 @@
     <!-- Top Destinations Section -->
     <section class="destinations-section py-5">
         <div class="container">
-            <h2 class="section-title">Top DESTINATIONS</h2>
-            <div class="row g-4">
-                <div class="col-md-3">
-                    <div class="destination-card">
-                        <img src="images/dest-1.jpg" alt="Destination 1" class="img-fluid">
-                        <div class="card-overlay">
-                            <a href="#" class="btn btn-light">voir l'offre <i class="fas fa-arrow-right"></i></a>
+            <h2 class="section-title">Top destinations du moment</h2>
+            <div class="cards-grid">
+                <!-- Rabat Card -->
+                <article class="destination-card">
+                    <div class="card-image-container">
+                        <img src="images/dest-1.jpg" alt="Rabat">
+                        <div class="card-blur-overlay"></div>
+                        <div class="card-text-overlay">
+                            <h3 class="card-title">Rabat</h3>
+                            <p class="card-subtitle">La Capitale Royale</p>
+                            <a href="#" class="card-button">Voir l'offre <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Madrid Card -->
+                <article class="destination-card">
+                    <div class="card-image-container">
+                        <img src="images/dest-2.jpg" alt="Madrid">
+                        <div class="card-blur-overlay"></div>
+                        <div class="card-text-overlay">
+                            <h3 class="card-title">Madrid</h3>
+                            <p class="card-subtitle">La Ville Vibrante</p>
+                            <a href="#" class="card-button">Voir l'offre <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                    </div>
+                </article>
+
+                <!-- Zanzibar Card -->
+                <article class="destination-card">
+                    <div class="card-image-container">
+                        <img src="images/dest-3.jpg" alt="Zanzibar">
+                        <div class="card-blur-overlay"></div>
+                        <div class="card-text-overlay">
+                            <h3 class="card-title">Zanzibar</h3>
+                            <p class="card-subtitle">Le Paradis Tropical</p>
+                            <a href="#" class="card-button">Voir l'offre <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        
+                    </div>
+                </article>
+
+                <!-- Sahara Card -->
+                <article class="destination-card">
+                    <div class="card-image-container">
+                        <img src="images/dest-4.jpg" alt="Sahara">
+                        <div class="card-blur-overlay"></div>
+                        <div class="card-text-overlay">
+                            <h3 class="card-title">Sahara</h3>
+                            <p class="card-subtitle">L'Aventure du Désert</p>
+                            <a href="#" class="card-button">Voir l'offre <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                    
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos hôtels mieux notés Section -->
+    <section class="top-rated-hotels py-5">
+        <div class="container">
+            <h2 class="section-title">Nos hôtels mieux notés</h2>
+            <div id="hotelCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- First Slide -->
+                    <div class="carousel-item active">
+                        <div class="cards-grid">
+                            <!-- Hotel Paris -->
+                            <article class="hotel-card">
+                                <div class="card-image-container">
+                                    <img src="images/hotel-1.jpg" alt="Hotel Paris">
+                                    <div class="card-blur-overlay"></div>
+                                    <div class="card-text-overlay">
+                                        <h3 class="card-title">Hôtel Dubai</h3>
+                                        <p class="card-subtitle">Un séjour inoubliable</p>
+                                        <a href="#" class="card-button">Réserver <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-footer">
+                                        <div class="hotel-rating">★★★★☆ (4.5)</div>
+                                        <div class="hotel-price">120€/nuit</div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Hotel Lyon -->
+                            <article class="hotel-card">
+                                <div class="card-image-container">
+                                    <img src="images/hotel-2.jpg" alt="Hotel Lyon">
+                                    <div class="card-blur-overlay"></div>
+                                    <div class="card-text-overlay">
+                                        <h3 class="card-title">Hôtel Miami</h3>
+                                        <p class="card-subtitle">Charme in Miami</p>
+                                        <a href="#" class="card-button">Réserver <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-footer">
+                                        <div class="hotel-rating">★★★★☆ (4.3)</div>
+                                        <div class="hotel-price">110€/nuit</div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Hotel Agadir -->
+                            <article class="hotel-card">
+                                <div class="card-image-container">
+                                    <img src="images/hotel-3.jpg" alt="Hotel Nice">
+                                    <div class="card-blur-overlay"></div>
+                                    <div class="card-text-overlay">
+                                        <h3 class="card-title">Hôtel Agadir</h3>
+                                        <p class="card-subtitle">Vue sur la Mer</p>
+                                        <a href="#" class="card-button">Réserver <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-footer">
+                                        <div class="hotel-rating">★★★★★ (4.8)</div>
+                                        <div class="hotel-price">150€/nuit</div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Hotel colorado -->
+                            <article class="hotel-card">
+                                <div class="card-image-container">
+                                    <img src="images/hotel-4.jpg" alt="Hotel Marseille">
+                                    <div class="card-blur-overlay"></div>
+                                    <div class="card-text-overlay">
+                                        <h3 class="card-title">Hôtel To You</h3>
+                                        <p class="card-subtitle">Vue sur le Vieux-Port</p>
+                                        <a href="#" class="card-button">Réserver <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-footer">
+                                        <div class="hotel-rating">★★★☆☆ (3.9)</div>
+                                        <div class="hotel-price">90€/nuit</div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Second Slide -->
+                    <div class="carousel-item">
+                        <div class="cards-grid">
+                            <!-- Hotel Malabata -->
+                            <article class="hotel-card">
+                                <div class="card-image-container">
+                                    <img src="images/hotel-5.jpg" alt="Hotel Bordeaux">
+                                    <div class="card-blur-overlay"></div>
+                                    <div class="card-text-overlay">
+                                        <h3 class="card-title">Hôtel Malabata</h3>
+                                        <p class="card-subtitle">Au cœur des vignobles</p>
+                                        <a href="#" class="card-button">Réserver <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-footer">
+                                        <div class="hotel-rating">★★★★☆ (4.4)</div>
+                                        <div class="hotel-price">130€/nuit</div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Hotel Tokyo -->
+                            <article class="hotel-card">
+                                <div class="card-image-container">
+                                    <img src="images/hotel-6.jpg" alt="Hotel Toulouse">
+                                    <div class="card-blur-overlay"></div>
+                                    <div class="card-text-overlay">
+                                        <h3 class="card-title">Hôtel Tokyo</h3>
+                                        <p class="card-subtitle">Votre Refuge de Luxe</p>
+                                        <a href="#" class="card-button">Réserver <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-footer">
+                                        <div class="hotel-rating">★★★★☆ (4.2)</div>
+                                        <div class="hotel-price">115€/nuit</div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Hotel Venizia -->
+                            <article class="hotel-card">
+                                <div class="card-image-container">
+                                    <img src="images/hotel-7.jpeg" alt="Hotel Lille">
+                                    <div class="card-blur-overlay"></div>
+                                    <div class="card-text-overlay">
+                                        <h3 class="card-title"> Hôtel Venizia</h3>
+                                        <p class="card-subtitle">Ressentez la Magie</p>
+                                        <a href="#" class="card-button">Réserver <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-footer">
+                                        <div class="hotel-rating">★★★★☆ (4.1)</div>
+                                        <div class="hotel-price">95€/nuit</div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Hotel Keshmara -->
+                            <article class="hotel-card">
+                                <div class="card-image-container">
+                                    <img src="images/hotel-8.jpeg" alt="Hotel Strasbourg">
+                                    <div class="card-blur-overlay"></div>
+                                    <div class="card-text-overlay">
+                                        <h3 class="card-title">Hôtel Keshmara</h3>
+                                        <p class="card-subtitle"> Authentique, Envoûtante, Éternelle </p>
+                                        <a href="#" class="card-button">Réserver <i class="fas fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-footer">
+                                        <div class="hotel-rating">★★★★☆ (4.3)</div>
+                                        <div class="hotel-price">125€/nuit</div>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="destination-card">
-                        <img src="images/dest-2.jpg" alt="Destination 2" class="img-fluid">
-                        <div class="card-overlay">
-                            <a href="#" class="btn btn-light">voir l'offre <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="destination-card">
-                        <img src="images/dest-3.jpg" alt="Destination 3" class="img-fluid">
-                        <div class="card-overlay">
-                            <a href="#" class="btn btn-light">voir l'offre <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="destination-card">
-                        <img src="images/dest-4.jpg" alt="Destination 4" class="img-fluid">
-                        <div class="card-overlay">
-                            <a href="#" class="btn btn-light">voir l'offre <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+
+                <!-- Carousel Controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#hotelCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#hotelCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#hotelCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
                 </div>
             </div>
         </div>
@@ -139,5 +446,26 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInside = navMenu.contains(event.target) || menuToggle.contains(event.target);
+            
+            if (!isClickInside && navMenu.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    });
+    </script>
 </body>
 </html> 
