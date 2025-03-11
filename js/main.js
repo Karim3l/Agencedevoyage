@@ -289,3 +289,4 @@ function applyRooms(btn) {
     input.value = `${rooms} chambre${rooms > 1 ? 's' : ''}`;
     popup.remove();
 }
+
